@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-title" content="Tranzit-Snab" />
+    <title>Tranzit-Snab</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script src="https://api-maps.yandex.ru/v3/?apikey=175823be-3eba-4088-9fa7-7c587dbef2f3&lang=ru_RU"></script>
+    <script src="scripts/geoCalculator.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/slider.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="slider.css" />
+    <link rel="stylesheet" href="anim.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+  </head>
+  <body data-simplebar id="scroll-container">
+    <div id="main"></div>
+    <!-- Main Content -->
+    <main>
+      <div id="main" class="main">
+        <section class="services-section">
+          <h2 class="section-title">ЧТО МЫ ПРЕДЛАГАЕМ</h2>
+          <div class="services-slider">
+            <!-- Контейнер для слайдов -->
+            <div class="service-slides-container">
+              <!-- Слайд 1 -->
+              <div class="service-slide">
+                <div class="services-text">
+                  <h4>Автомобильные перевозки</h4>
+                  <ul class="check-list">
+                    <li>
+                      <i class="fas fa-check-circle"></i> Межрегиональные,
+                      пригородные и городские
+                    </li>
+                    <li><i class="fas fa-check-circle"></i> Сборных грузов</li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Малотоннажных и
+                      крупнотоннажных грузов
+                    </li>
+                  </ul>
+                  <p><b>Домашние переезды:</b> по городу, междугородние</p>
+                  <button class="calculate" onclick="calculate()">Рассчитать</button>
+                </div>
+                <div class="separator-vertical"></div>
+                <div class="image-container">
+                  <img src="img/1.png" alt="Грузоперевозки" />
+                </div>
+              </div>
+
+              <!-- Слайд 2 -->
+              <div class="service-slide">
+                <div class="services-text">
+                  <h4>Междугородние перевозки</h4>
+                  <ul class="check-list">
+                    <li>
+                      <i class="fas fa-check-circle"></i> Быстрая доставка
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Грузы любого объема
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Страхование груза
+                    </li>
+                  </ul>
+                  <button class="calculate">Рассчитать</button>
+                </div>
+                <div class="separator-vertical"></div>
+                <div class="image-container">
+                  <img src="img/2.jpeg" alt="Междугородние перевозки" />
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-controls">
+              <button
+                class="prev-button"
+                type="button"
+                aria-label="Предыдущий слайд"
+              >
+                ‹
+              </button>
+
+              <div class="slider-dots-container">
+                <div class="slider-dots"></div>
+              </div>
+
+              <button
+                class="next-button"
+                type="button"
+                aria-label="Следующий слайд"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="delivery-section" id="delivery">
+        <div class="delivery-info">
+          <div class="route-controls">
+            <h2>Адрес доставки</h2>
+            <div class="input-group">
+              <div style="position: relative">
+                <input type="text" id="from" placeholder="Откуда" />
+                <div id="from-suggestions" class="suggestions"></div>
+              </div>
+              <div style="position: relative">
+                <input type="text" id="to" placeholder="Куда" />
+                <div id="to-suggestions" class="suggestions"></div>
+              </div>
+            </div>
+          </div>
+          <div class="route-controls">
+            <h2>Габариты</h2>
+            <div class="input-group">
+              <input type="text" placeholder="Вес, кг" />
+              <input type="text" placeholder="Объем, м3" />
+              <button
+                id="calculate-route"
+                onclick="calculate()"
+                class="btn margin-l-20 calculate"
+              >
+                Рассчитать
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="map" style="width: 80%; height: 100%; margin: 0 auto"></div>
+      </section>
+
+      <section class="partners-section" id="partners">
+        <div class="card">
+          <img src="assets/partner1.png" alt />
+          <div class="card-content">
+            <h2>ПОЛЯРНАЯ СТРЕЛА</h2>
+            <p>
+              Современная и технологичная транспортная компания, имеющая
+              17-летний опыт перевозок на Крайнем Севере.
+            </p>
+            <a href="https://polarstar.su/" class="button">
+              Перейти
+              <span class="material-symbols-outlined"> ➔ </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contacts">
+        <div class="contact-content">
+          <p>
+            Если у вас есть вопросы по поводу наших услуг, хотите узнать больше
+            о стоимости перевозки или нуждаетесь в индивидуальной консультации,
+            свяжитесь с нами удобным для вас способом.
+          </p>
+          <p>
+            Наша команда готова помочь вам с любыми вопросами, связанными с
+            перевозкой грузов.
+          </p>
+
+          <div class="contact-info">
+            <p>
+              Телефон:
+              <a
+                href="tel:+71234567890"
+                style="color: #2980b9; text-decoration: none"
+                >+7 (123) 456-7890</a
+              >
+            </p>
+            <p>
+              Email:
+              <a
+                href="mailto:info@tranzit-snab.ru"
+                style="color: #2980b9; text-decoration: none"
+                >info@tranzit-snab.ru</a
+              >
+            </p>
+            <p>Адрес: г. Москва, ул. Примерная, д. 12, офис 34</p>
+          </div>
+
+          <p class="working-hours">
+            Мы работаем с понедельника по пятницу с 9:00 до 18:00. Звоните нам
+            или пишите на электронную почту, и мы ответим вам в кратчайшие
+            сроки.
+          </p>
+        </div>
+      </section>
+
+      <footer
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background: #f5f5f5;
+        "
+      >
+        <div style="display: flex; align-items: center; gap: 15px">
+          <img src="/img/logo.png" alt="Логотип" width="95" />
+          <img src="/img/TRANZIT-SNAB.svg" alt="TRANZIT-SNAB" width="481" />
+        </div>
+
+        <div style="display: flex; gap: 12px">
+          <a href="https://vk.com" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/145/145813.png"
+              alt="VK"
+              width="48"
+            />
+          </a>
+          <a href="https://telegram.org" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"
+              alt="Telegram"
+              width="48"
+            />
+          </a>
+        </div>
+      </footer>
+    </main>
+
+    <div class="loader" id="loader">
+      <img src="img/TRANZIT-SNAB.svg" />
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+      <nav>
+        <ul>
+          <li><a href="#main" class="nav-link">Главная</a></li>
+          <li><a href="#delivery" class="nav-link">Калькулятор</a></li>
+          <li><a href="#partners" class="nav-link">Партнеры</a></li>
+          <li><a href="#contacts" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Контактные данные</h2>
+        <input type="tel" id="phone" placeholder="Телефон" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <button id="submit-data" class="btn">Отправить результаты</button>
+      </div>
+    </div>
+  </body>
+</html>
