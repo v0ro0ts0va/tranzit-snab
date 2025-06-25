@@ -37,16 +37,13 @@
   </head>
   <body data-simplebar id="scroll-container">
     <div id="main"></div>
-    <!-- Main Content -->
     <main>
       <div id="main" class="main">
         <section class="services-section">
           <h2 class="section-title">ЧТО МЫ ПРЕДЛАГАЕМ</h2>
           <div class="services-slider">
-            <!-- Контейнер для слайдов -->
             <div class="service-slides-container">
-              <!-- Слайд 1 -->
-              <div class="service-slide">
+              <div class="service-slide" style="border-radius: 20px; overflow: hidden;">
                 <div class="services-text">
                   <h4>Автомобильные перевозки</h4>
                   <ul class="check-list">
@@ -68,9 +65,7 @@
                   <img src="img/1.png" alt="Грузоперевозки" />
                 </div>
               </div>
-
-              <!-- Слайд 2 -->
-              <div class="service-slide">
+              <div class="service-slide" style="border-radius: 20px; overflow: hidden;">
                 <div class="services-text">
                   <h4>Междугородние перевозки</h4>
                   <ul class="check-list">
@@ -92,7 +87,6 @@
                 </div>
               </div>
             </div>
-
             <div class="slider-controls">
               <button
                 class="prev-button"
@@ -117,7 +111,6 @@
           </div>
         </section>
       </div>
-
       <section class="delivery-section" id="delivery">
         <div class="delivery-info">
           <div class="route-controls">
@@ -134,117 +127,124 @@
             </div>
           </div>
           <div class="route-controls">
-            <h2>Габариты</h2>
+            <h2 style="margin-left: -250px;">Габариты</h2>
             <div class="input-group">
               <input type="text" placeholder="Вес, кг" />
               <input type="text" placeholder="Объем, м3" />
-              <button
-                id="calculate-route"
-                onclick="calculate()"
-                class="btn margin-l-20 calculate"
-              >
-                Рассчитать
-              </button>
+              <button id="calculate-route" onclick="calculate()" class="btn margin-l-20 calculate" style="transform: translateY(-0.5cm);">Рассчитать</button>
             </div>
           </div>
         </div>
-        <div id="map" style="width: 80%; height: 100%; margin: 0 auto"></div>
+        <div id="map" style="width: 95%; max-width: 1600px; height: 900px; margin: 0 auto;"></div>
       </section>
-
-      <section class="partners-section" id="partners">
-        <div class="card">
-          <img src="assets/partner1.png" alt />
+<section class="partners-section" id="partners" style="padding: 60px 40px;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 50px; width: 100%;">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 400px;">
+      <h2 class="section-title" style="margin-top: 85px; margin-bottom: 40px;">ПАРТНЕРЫ</h2>
+      <div class="card" style="width: 100%; transform: translateY(-4.8cm);">
+        <img src="assets/partner1.png" alt="Полярная стрела" />
+        <div class="card-content">
+          <h2>ПОЛЯРНАЯ СТРЕЛА</h2>
+          <p>
+            Современная и технологичная транспортная компания, имеющая
+            17-летний опыт перевозок на Крайнем Севере.
+          </p>
+          <a href="https://polarstar.su/" class="button">
+            Перейти <span class="material-symbols-outlined"> ➔ </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 100px; align-items: center;">
+      <h2 class="section-title" style="text-align: center;">НАМ ДОВЕРЯЮТ</h2>
+      <div style="display: flex; justify-content: center; gap: 20px; transform: translateY(-7.2cm);">
+        <div class="card" style="width: 400px;">
+          <img src="assets/Severstal1.png" alt="Северсталь" />
           <div class="card-content">
-            <h2>ПОЛЯРНАЯ СТРЕЛА</h2>
+            <h2>Северсталь</h2>
             <p>
-              Современная и технологичная транспортная компания, имеющая
-              17-летний опыт перевозок на Крайнем Севере.
+              Крупнейшая российская сталелитейная и горнодобывающая компания, обеспечивающая устойчивое развитие промышленности.
             </p>
-            <a href="https://polarstar.su/" class="button">
-              Перейти
-              <span class="material-symbols-outlined"> ➔ </span>
+            <a href="https://severstal.com/rus/" class="button">
+              Перейти <span class="material-symbols-outlined"> ➔ </span>
             </a>
           </div>
         </div>
-      </section>
+        <div class="card" style="width: 400px;">
+          <img src="assets/DVIZhENIE.png" alt="Движение автомасла" />
+          <div class="card-content">
+            <h2>Движение автомасла</h2>
+            <p>
+              Официальный дилер одного из ведущих мировых брендов по производству техники для активного отдыха — CFMOTO. 
+            </p>
+            <a href="https://avtomasla.su/" class="button">
+              Перейти <span class="material-symbols-outlined"> ➔ </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section class="contact-section" id="contacts">
         <div class="contact-content">
-          <p>
-            Если у вас есть вопросы по поводу наших услуг, хотите узнать больше
-            о стоимости перевозки или нуждаетесь в индивидуальной консультации,
-            свяжитесь с нами удобным для вас способом.
-          </p>
-          <p>
-            Наша команда готова помочь вам с любыми вопросами, связанными с
-            перевозкой грузов.
-          </p>
-
+          <p>Если у вас есть вопросы, свяжитесь с нами удобным для вас способом.</p>
+          <p>Наша команда готова помочь вам с любыми вопросами, связанными с перевозкой грузов.</p>
           <div class="contact-info">
-            <p>
-              Телефон:
-              <a
-                href="tel:+71234567890"
-                style="color: #2980b9; text-decoration: none"
-                >+7 (123) 456-7890</a
-              >
-            </p>
-            <p>
-              Email:
-              <a
-                href="mailto:info@tranzit-snab.ru"
-                style="color: #2980b9; text-decoration: none"
-                >info@tranzit-snab.ru</a
-              >
-            </p>
-            <p>Адрес: г. Москва, ул. Примерная, д. 12, офис 34</p>
+            <p>Телефон: <a href="tel:+79125532232">+7 (912) 553 22 32, +7 (912) 702 91 60</a></p>
+            <p>Email: <a href="mailto:tranzit-snab.kir@mail.ru">tranzit-snab.kir@mail.ru</a></p>
+            <p>Адрес: г. Киров, ул. Блюхера, д. 2/3</p>
           </div>
-
-          <p class="working-hours">
-            Мы работаем с понедельника по пятницу с 9:00 до 18:00. Звоните нам
-            или пишите на электронную почту, и мы ответим вам в кратчайшие
-            сроки.
-          </p>
+          <div class="contact-info">
+            <p>Телефон: <a href="tel:+78002012555">+7 (800) 201 25 55 </a></p>
+            <p>Email: <a href="mailto:stp.vkt@mail.ru">stp.vkt@mail.ru</a></p>
+            <p>Адрес: г. Воркута, ул. Гоголя, д. 9а</p>
+          </div>
+          <div class="contact-info">
+            <p>Телефон: <a href="tel:+79125035050">+7 (912) 503 50 50</a></p>
+            <p>Адрес: г. Москва, ул. 1-я Мытищинская, д. 28/1</p>
+          </div>
+          <p class="working-hours">Мы работаем с понедельника по пятницу с 9:00 до 19:00.</p>
         </div>
       </section>
-
       <footer
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px;
-          background: #f5f5f5;
-        "
-      >
-        <div style="display: flex; align-items: center; gap: 15px">
-          <img src="/img/logo.png" alt="Логотип" width="95" />
-          <img src="/img/TRANZIT-SNAB.svg" alt="TRANZIT-SNAB" width="481" />
-        </div>
+  style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #f5f5f5;
+  "
+>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <img src="/img/logo.png" alt="Логотип" width="80" style="display: block;" />
+    <img src="/img/TRANZIT-SNAB.svg" alt="TRANZIT-SNAB" width="400" style="display: block; margin-top: -10px;" />
+  </div>
 
-        <div style="display: flex; gap: 12px">
-          <a href="https://vk.com" target="_blank">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/145/145813.png"
-              alt="VK"
-              width="48"
-            />
-          </a>
-          <a href="https://telegram.org" target="_blank">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"
-              alt="Telegram"
-              width="48"
-            />
-          </a>
-        </div>
-      </footer>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <a href="https://vk.com" target="_blank">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/145/145813.png"
+        alt="VK"
+        width="40"
+        style="display: block;"
+      />
+    </a>
+    <a href="https://telegram.org" target="_blank">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"
+        alt="Telegram"
+        width="40"
+        style="display: block;"
+      />
+    </a>
+  </div>
+</footer>
     </main>
-
     <div class="loader" id="loader">
       <img src="img/TRANZIT-SNAB.svg" />
     </div>
-
     <!-- Header -->
     <header id="main-header">
       <nav>
@@ -257,13 +257,14 @@
       </nav>
     </header>
     <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Контактные данные</h2>
-        <input type="tel" id="phone" placeholder="Телефон" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <button id="submit-data" class="btn">Отправить результаты</button>
-      </div>
-    </div>
+  <div class="modal-content">
+  <span class="close">&times;</span>
+  <h2>Контактные данные</h2>
+  <p id="cost-output" style="font-weight: bold; margin-bottom: 10px;"></p>
+  <input type="tel" id="phone" placeholder="Телефон" required />
+  <input type="email" id="email" placeholder="Email" required />
+  <button id="submit-data" class="btn">Отправить результаты</button>
+</div>
+</div>
   </body>
 </html>
